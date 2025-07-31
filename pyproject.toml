@@ -85,19 +85,16 @@ pytorch-sphinx-theme = { git = "https://github.com/mzr1996/pytorch_sphinx_theme.
 [[tool.uv.index]]
 name = "pytorch-cu118"
 url = "https://download.pytorch.org/whl/cu118"
-explicit = true
 
 [[tool.uv.index]]
 # pip install mmcv==2.1.0 -f https://download.openmmlab.com/mmcv/dist/cu118/torch2.1/index.html
 name    = "mmcv-cu118"
 url     = "https://download.openmmlab.com/mmcv/dist/cu118/torch2.1/index.html"
 format  = "flat"
-explicit = true
 
 [[tool.uv.index]]
 name = "xformers-cu118"
 url = "https://download.pytorch.org/whl/cu118"
-explicit = true
 
 [tool.setuptools.packages.find]        # custom discovery
 include = ["mmpretrain*"]                # pick the library
