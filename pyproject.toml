@@ -30,13 +30,13 @@ dependencies = [
   "torch==2.1.1",
   "torchvision==0.16.1",
   "torchaudio==2.1.1",
-  "mmcv==2.1.0",
-  "xformers==0.0.23",
+  "mmengine>=0.10.7",
+  "mmcv==2.1.0; sys_platform == 'linux'",
+  "mmcv-lite;    sys_platform != 'linux'",
   "numpy<2",
   "matplotlib>=3.10.1",
   "seaborn>=0.13.2",
   "torchmetrics",
-  "mmengine>=0.10.7",
   "ninja>=1.11.1.4",
   "transformers>=4.28.0",
   "pycocotools",
@@ -67,34 +67,40 @@ docs = [
 
 [tool.uv.sources]
 torch = [
-  { index = "pytorch-cu118" },
+  { index = "pytorch-cpu", marker = "sys_platform != 'linux'" },
+  { index = "pytorch-cu118", marker = "sys_platform == 'linux'" },
 ]
 torchvision = [
-  { index = "pytorch-cu118" },
+  { index = "pytorch-cpu", marker = "sys_platform != 'linux'" },
+  { index = "pytorch-cu118", marker = "sys_platform == 'linux'" },
 ]
 torchaudio = [
-  { index = "pytorch-cu118" },
+  { index = "pytorch-cpu", marker = "sys_platform != 'linux'" },
+  { index = "pytorch-cu118", marker = "sys_platform == 'linux'" },
 ]
 mmcv = [
-  { index = "mmcv-cu118" },
+  { index = "mmcv-cu118", marker = "sys_platform == 'linux'" },
 ]
 clip = { git = "https://github.com/openai/CLIP.git" }
 pyedgeeval = { git = "https://github.com/haruishi43/py-edge-eval.git" }
 pytorch-sphinx-theme = { git = "https://github.com/mzr1996/pytorch_sphinx_theme.git" }
 
 [[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[[tool.uv.index]]
 name = "pytorch-cu118"
 url = "https://download.pytorch.org/whl/cu118"
+explicit = true
 
 [[tool.uv.index]]
 # pip install mmcv==2.1.0 -f https://download.openmmlab.com/mmcv/dist/cu118/torch2.1/index.html
 name    = "mmcv-cu118"
 url     = "https://download.openmmlab.com/mmcv/dist/cu118/torch2.1/index.html"
 format  = "flat"
-
-[[tool.uv.index]]
-name = "xformers-cu118"
-url = "https://download.pytorch.org/whl/cu118"
+explicit = true
 
 [tool.setuptools.packages.find]        # custom discovery
 include = ["mmpretrain*"]                # pick the library
