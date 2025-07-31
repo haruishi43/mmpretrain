@@ -1266,6 +1266,15 @@ wheels = [
 ]
 
 [[package]]
+name = "markdown"
+version = "3.8.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/d7/c2/4ab49206c17f75cb08d6311171f2d65798988db4360c4d1485bd0eedd67c/markdown-3.8.2.tar.gz", hash = "sha256:247b9a70dd12e27f67431ce62523e675b866d254f900c4fe75ce3dda62237c45", size = 362071 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/96/2b/34cc11786bc00d0f04d0f5fdc3a2b1ae0b6239eef72d3d345805f9ad92a1/markdown-3.8.2-py3-none-any.whl", hash = "sha256:5c83764dbd4e00bdd94d85a19b8d55ccca20fe35b2e678a1422b380324dd5f24", size = 106827 },
+]
+
+[[package]]
 name = "markdown-it-py"
 version = "3.0.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1303,6 +1312,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/69/84/83439e16197337b8b14b6a5b9c2105fff81d42c2a7c5b58ac7b62ee2c3b1/MarkupSafe-3.0.2-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:0bff5e0ae4ef2e1ae4fdf2dfd5b76c75e5c2fa4132d05fc1b0dabcd20c7e28c4", size = 23306 },
     { url = "https://files.pythonhosted.org/packages/9a/34/a15aa69f01e2181ed8d2b685c0d2f6655d5cca2c4db0ddea775e631918cd/MarkupSafe-3.0.2-cp311-cp311-win32.whl", hash = "sha256:6c89876f41da747c8d3677a2b540fb32ef5715f97b66eeb0c6b66f5e3ef6f59d", size = 15094 },
     { url = "https://files.pythonhosted.org/packages/da/b8/3a3bd761922d416f3dc5d00bfbed11f66b1ab89a0c2b6e887240a30b0f6b/MarkupSafe-3.0.2-cp311-cp311-win_amd64.whl", hash = "sha256:70a87b411535ccad5ef2f1df5136506a10775d267e197e4cf531ced10537bd6b", size = 15521 },
+]
+
+[[package]]
+name = "mat4py"
+version = "0.6.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/9b/cc/f918875b4612d665bf3cba68714014ee599d0131851f99f7d0686f50b800/mat4py-0.6.0.tar.gz", hash = "sha256:438927e6c16831a337596f593eb0b391c4cf6c982280b635ae412e80dff7fd07", size = 14782 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/55/e9/4e2deb2c904e1d0bde3fa49c054160c2f56ffee5d327dc65fe41bb360613/mat4py-0.6.0-py2.py3-none-any.whl", hash = "sha256:1c15f39c7df092f01506044f65999fc9c7d71306f8fc850b1003e15ed64c6bae", size = 13209 },
 ]
 
 [[package]]
@@ -1443,10 +1461,12 @@ dependencies = [
     { name = "ftfy" },
     { name = "grad-cam" },
     { name = "importlib-metadata" },
+    { name = "mat4py" },
     { name = "matplotlib" },
     { name = "mmcv", marker = "sys_platform == 'linux'" },
     { name = "mmcv-lite", marker = "sys_platform != 'linux'" },
     { name = "mmengine" },
+    { name = "modelindex" },
     { name = "ninja" },
     { name = "numpy" },
     { name = "open-clip-torch" },
@@ -1483,6 +1503,7 @@ docs = [
     { name = "sphinxcontrib-mermaid" },
     { name = "sphinxcontrib-openapi" },
     { name = "sphinxcontrib-serializinghtml" },
+    { name = "tabulate" },
 ]
 
 [package.dev-dependencies]
@@ -1504,10 +1525,12 @@ requires-dist = [
     { name = "grad-cam", specifier = "<1.5.0" },
     { name = "importlib-metadata", specifier = ">=8.7.0" },
     { name = "jupyter-sphinx", marker = "extra == 'docs'", specifier = ">=0.4.3" },
+    { name = "mat4py", specifier = ">=0.6.0" },
     { name = "matplotlib", specifier = ">=3.10.1" },
     { name = "mmcv", marker = "sys_platform == 'linux'", specifier = "==2.1.0", index = "https://download.openmmlab.com/mmcv/dist/cu118/torch2.1/index.html" },
     { name = "mmcv-lite", marker = "sys_platform != 'linux'" },
     { name = "mmengine", specifier = ">=0.10.7" },
+    { name = "modelindex", specifier = ">=0.0.2" },
     { name = "nbsphinx", marker = "extra == 'docs'", specifier = ">=0.8.9" },
     { name = "ninja", specifier = ">=1.11.1.4" },
     { name = "numpy", specifier = "<2" },
@@ -1525,6 +1548,7 @@ requires-dist = [
     { name = "sphinxcontrib-mermaid", marker = "extra == 'docs'", specifier = ">=0.9.0" },
     { name = "sphinxcontrib-openapi", marker = "extra == 'docs'", specifier = ">=0.8.1" },
     { name = "sphinxcontrib-serializinghtml", marker = "extra == 'docs'", specifier = ">=1.1.5" },
+    { name = "tabulate", marker = "extra == 'docs'", specifier = ">=0.9.0" },
     { name = "timm" },
     { name = "torch", marker = "sys_platform != 'linux'", specifier = "==2.1.1", index = "https://download.pytorch.org/whl/cpu" },
     { name = "torch", marker = "sys_platform == 'linux'", specifier = "==2.1.1", index = "https://download.pytorch.org/whl/cu118" },
@@ -1545,6 +1569,33 @@ dev = [
     { name = "jupyterlab", specifier = ">=4.3.5" },
     { name = "pytest", specifier = ">=8.3.4" },
     { name = "ruff", specifier = ">=0.9.6" },
+]
+
+[[package]]
+name = "model-index"
+version = "0.1.11"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "click" },
+    { name = "markdown" },
+    { name = "ordered-set" },
+    { name = "pyyaml" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/25/91/3db595e51266e5a32f4a26e3b4c4212ba83b4ce649196e81565cf0dcdec2/model-index-0.1.11.tar.gz", hash = "sha256:2f9870200f3b00813881b07b90d2c67291663534e43915c75fe476b6977bf2ad", size = 20495 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0f/a6/4d4cbbef704f186d143e2859296a610a355992e4eae71582bd598093b36a/model_index-0.1.11-py3-none-any.whl", hash = "sha256:a2a4d4431cd44e571d31e223cc4b0432663a62689de453bdb666e56a514b0e07", size = 34393 },
+]
+
+[[package]]
+name = "modelindex"
+version = "0.0.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "model-index" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b4/64/3bd468b76f78da6e50fa932ce7e987d793f2f893b33c403c287f9feef3dc/modelindex-0.0.2.tar.gz", hash = "sha256:f6d15020225dad46f10f8d88555d9afd8461a04c0f6671dcb6edf8e2198d2576", size = 1181 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/79/63/9d6ddca82fc7bd227cfc323fe5ab9f97cf90e23501fa3274194d93806dc1/modelindex-0.0.2-py3-none-any.whl", hash = "sha256:ad6cfabccaa1ae03ab088689a69707d31643c179accc3d57163112312fe5e3d7", size = 2121 },
 ]
 
 [[package]]
@@ -1783,6 +1834,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/dd/5c/c139a7876099916879609372bfa513b7f1257f7f1a908b0bdc1c2328241b/opencv_python_headless-4.11.0.86-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0e0a27c19dd1f40ddff94976cfe43066fbbe9dfbb2ec1907d66c19caef42a57b", size = 49969856 },
     { url = "https://files.pythonhosted.org/packages/95/dd/ed1191c9dc91abcc9f752b499b7928aacabf10567bb2c2535944d848af18/opencv_python_headless-4.11.0.86-cp37-abi3-win32.whl", hash = "sha256:f447d8acbb0b6f2808da71fddd29c1cdd448d2bc98f72d9bb78a7a898fc9621b", size = 29324425 },
     { url = "https://files.pythonhosted.org/packages/86/8a/69176a64335aed183529207ba8bc3d329c2999d852b4f3818027203f50e6/opencv_python_headless-4.11.0.86-cp37-abi3-win_amd64.whl", hash = "sha256:6c304df9caa7a6a5710b91709dd4786bf20a74d57672b3c31f7033cc638174ca", size = 39402386 },
+]
+
+[[package]]
+name = "ordered-set"
+version = "4.1.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/4c/ca/bfac8bc689799bcca4157e0e0ced07e70ce125193fc2e166d2e685b7e2fe/ordered-set-4.1.0.tar.gz", hash = "sha256:694a8e44c87657c59292ede72891eb91d34131f6531463aab3009191c77364a8", size = 12826 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/33/55/af02708f230eb77084a299d7b08175cff006dea4f2721074b92cdb0296c0/ordered_set-4.1.0-py3-none-any.whl", hash = "sha256:046e1132c71fcf3330438a539928932caf51ddbc582496833e23de611de14562", size = 7634 },
 ]
 
 [[package]]
