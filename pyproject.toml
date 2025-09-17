@@ -18,7 +18,6 @@ requires-python = ">=3.10,<3.12"
 dependencies = [
   "albumentations==1.4.4",
   "elasticdeform",
-  "grad-cam<1.5.0",
   "ftfy",
   "einops",
   "open-clip-torch",
@@ -63,40 +62,45 @@ docs = [
   "jupyter-sphinx>=0.4.3",
   "tabulate>=0.9.0",
 ]
-torch21 = [
-  "torch==2.1.1",
-  "torchvision==0.16.1",
-  "torchaudio==2.1.1",
-  "mmcv==2.1.0",
-]
-torch24 = [
+cu118 = [
   "torch==2.4.1",
   "torchvision==0.19.1",
   "torchaudio==2.4.1",
   "mmcv==2.2.0",
+  "grad-cam<1.5.0",
+]
+cu121 = [
+  "torch==2.4.1",
+  "torchvision==0.19.1",
+  "torchaudio==2.4.1",
+  "mmcv==2.2.0",
+  "grad-cam<1.5.0",
 ]
 
 [tool.uv]
 conflicts = [
   [
-    { extra = "torch21" },
-    { extra = "torch24" },
+    { extra = "cu118" },
+    { extra = "cu121" },
   ],
 ]
 
 [tool.uv.sources]
 torch = [
-  { index = "pytorch-cu118", marker = "sys_platform == 'linux'" },
+  { index = "pytorch-cu118", extra = "cu118" },
+  { index = "pytorch-cu121", extra = "cu121" },
 ]
 torchvision = [
-  { index = "pytorch-cu118", marker = "sys_platform == 'linux'" },
+  { index = "pytorch-cu118", extra = "cu118" },
+  { index = "pytorch-cu121", extra = "cu121" },
 ]
 torchaudio = [
-  { index = "pytorch-cu118", marker = "sys_platform == 'linux'" },
+  { index = "pytorch-cu118", extra = "cu118" },
+  { index = "pytorch-cu121", extra = "cu121" },
 ]
 mmcv = [
-  { index = "mmcv-torch21", marker = "sys_platform == 'linux' and extra == 'torch21' and extra != 'torch24'" },
-  { index = "mmcv-torch24", marker = "sys_platform == 'linux' and extra != 'torch21' and extra == 'torch24'" },
+  { index = "mmcv-cu118", extra = "cu118" },
+  { index = "mmcv-cu121", extra = "cu121" },
 ]
 clip = { git = "https://github.com/openai/CLIP.git" }
 pyedgeeval = { git = "https://github.com/haruishi43/py-edge-eval.git" }
@@ -108,14 +112,19 @@ url = "https://download.pytorch.org/whl/cu118"
 explicit = true
 
 [[tool.uv.index]]
-name = "mmcv-torch21"
-url = "https://download.openmmlab.com/mmcv/dist/cu118/torch2.1/index.html"
+name = "pytorch-cu121"
+url = "https://download.pytorch.org/whl/cu121"
+explicit = true
+
+[[tool.uv.index]]
+name = "mmcv-cu118"
+url = "https://download.openmmlab.com/mmcv/dist/cu118/torch2.4/index.html"
 format = "flat"
 explicit = true
 
 [[tool.uv.index]]
-name = "mmcv-torch24"
-url = "https://download.openmmlab.com/mmcv/dist/cu118/torch2.4/index.html"
+name = "mmcv-cu121"
+url = "https://download.openmmlab.com/mmcv/dist/cu121/torch2.4/index.html"
 format = "flat"
 explicit = true
 
@@ -129,7 +138,7 @@ exclude = [
 requires = [
   "setuptools>=65.5.1",
   "wheel>=0.40.0",
-  # "torch==2.1.1",
+  "torch==2.4.1",
 ]
 build-backend = "setuptools.build_meta"
 
